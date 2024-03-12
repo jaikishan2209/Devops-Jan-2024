@@ -1,16 +1,21 @@
 # Prerequsite before commit
 
-- Create your project folder
-- CD to created folder
-- Run command `git init`
-- Create some empty files or folders to make commit
-- Set ownership (because git expects to give some basic information about the commit person)
+* First git expects to give some basic information about the commit person
+
+* This can be done with help of below commands
 
   `git config --global user.name "vijay"`
   `git config --global user.email "mail.id"`
 
+* Then create your project folder
 
-## Make your first commit 1
+* CD to create folder
+
+* Run command `git init`
+
+* Create some empty files
+
+## commit 1
 
 | Task                  | Command                         | Notes                                             |
 | --------------------- | --------------------------------|---------------------------------------------------|
@@ -18,7 +23,7 @@
 | Stage files           | `git add basic.sh`              | use `git status` again to check if file is staged |
 | Commit files          | `git commit –m "First commit"`  | commit message can be user defined                |
 
-## Make your second commit 2
+## commit 2
 
 * Let's try to modify the file again and do second commit
 
@@ -35,3 +40,4 @@
 | --------------------- | --------------------------------|---------------------------------------------------|
 | Check commit logs     | `git log`                       | view history of commits                           |
 | Check commit logs     | `git log --oneline`             | view commit logs in oneline                       |
+| Unstage the file      | `git rm --cached basic.sh`      | can unstage the file if incase required           |
