@@ -1,16 +1,27 @@
 # What are we doing with this code?
-* Using this code we are trying to understand what types are variables can be used in terraform code.
+* Using this code we are creating EC2 instance in AWS cloud platform additionally we will be using variables.
+* Also we did have splitted code into multiple files.
+   - Splitting files can result in easy debug.
+   - Easy to manage configuration when infrastructure scales.
 
 # Steps to execute this code?
-* `terraform console` 
-   - This command will take you to terraform command line console.
-   - Make sure you are running this command from folder where you have your code.
+* `terraform init` 
+   - This command will initialize the terraform in that folder.
+   - Also initialize provider plugins, in our case it could download plugins which is relevant to AWS.
+   - You don’t need to run this command every time, unless if there is any change in config file.
 
-# How to call the variables
-| Type   | Method 1            | Method 2                 | Method 3               |
-| ------ | ------------------- | -----------------------  | ---------------------- |
-| String | var.my-first-string | "${var.my-first-string}" |                        |
-| Number | var.myinteger       | "${var.myinteger}"       |                        |
-| List   | var.mylist          | var.mylist[0]            |                        |
-|        | var.mylist_1        | var.mylist_1[0]          |                        |
-| Map    | var.mymap.name      | var.mymap[“name”]        | “${var.mymap[“name”]}” |
+* `terraform validate`
+   - To verify if your code does not have any syntax errors.
+
+* `terraform plan`
+   - This command can help you to understand what actions will be performed when your trigger the terraform file.
+
+* `terraform apply`
+   - This command will do actual implementation in your infrastructure.
+
+* `terraform destroy`
+   - This command will destroy the infrastructure as described in your terraform file.
+
+# Plugins used in this code
+ - Provider
+ - Resource

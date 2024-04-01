@@ -1,22 +1,10 @@
 # Access Key
-variable AWS_ACCESSKEY {
-  default     = "xxxxx"
-}
+variable AWS_ACCESSKEY {}
 
 # Secret Key
-variable AWS_SECRETKEY {
-  default     = "xxxxx"
-}
+variable AWS_SECRETKEY {}
 
 # Region
-variable AWS_REGION {
-  default = "ap-south-1"
-}
+variable AWS_REGION {}
 
-variable machine_type {
-  default = "t2.micro"
-}
-
-# Image IDs
-variable "AMI" {}
-
+variable "instance_type" {}

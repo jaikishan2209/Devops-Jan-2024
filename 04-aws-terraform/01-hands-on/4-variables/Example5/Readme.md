@@ -1,7 +1,7 @@
 # What are we doing with this code?
  - Using this code we are creating EC2 instance in AWS cloud platform.
  - Additionally we will be using variables.
- - AMI image ID will be provided from command line at run time
+ - Inputs for variable will be provided from `tfvars` file.
 
 # Steps to execute this code?
 * `terraform init` 
@@ -12,10 +12,10 @@
 * `terraform validate`
    - To verify if your code does not have any syntax errors.
 
-* `terraform plan -var 'AMI=ami-0c1a7f89451184c8b`
+* `terraform plan`
    - This command can help you to understand what actions will be performed when your trigger the terraform file.
 
-* `terraform apply -var 'AMI=ami-0c1a7f89451184c8b`
+* `terraform apply`
    - This command will do actual implementation in your infrastructure.
 
 * `terraform destroy`

@@ -1,7 +1,7 @@
 # What are we doing with this code?
  - Using this code we are creating EC2 instance in AWS cloud platform.
  - Additionally we will be using variables.
- - Inputs for variable will be provided from `tfvars` file.
+ - We can create multiple tfvars files as per requirement and pass those from command line.
 
 # Steps to execute this code?
 * `terraform init` 
@@ -15,7 +15,7 @@
 * `terraform plan`
    - This command can help you to understand what actions will be performed when your trigger the terraform file.
 
-* `terraform apply`
+* `terraform apply -var-file=“staging.tfvars”`
    - This command will do actual implementation in your infrastructure.
 
 * `terraform destroy`
