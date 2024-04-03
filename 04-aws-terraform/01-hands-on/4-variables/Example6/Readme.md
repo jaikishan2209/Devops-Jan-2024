@@ -12,7 +12,7 @@
 * `terraform validate`
    - To verify if your code does not have any syntax errors.
 
-* `terraform plan`
+* `terraform pla var-file=“staging.tfvars”`
    - This command can help you to understand what actions will be performed when your trigger the terraform file.
 
 * `terraform apply -var-file=“staging.tfvars”`
