@@ -1,0 +1,16 @@
+---
+  - hosts: all
+    remote_user: vagrant
+    become: true
+    gather_facts: no
+    ignore_errors: true
+    check_mode: yes
+    tasks:
+        - name: Uninstall apache
+          apt:
+            name: apache2
+            state: absent
+        - name: Apache service stop
+          service: 
+            name: apache2
+            state: stopped

@@ -1,0 +1,14 @@
+---
+  - hosts: all
+    remote_user: vagrant
+    become: true
+    gather_facts: no
+    #check_mode: no
+    ignore_errors: true
+    tasks:
+        - name: Insert new line into a file before specific line
+          lineinfile:
+            path: /tmp/apache_version.txt
+            insertbefore: '^datadog'
+            line: mongodb is database application
+          

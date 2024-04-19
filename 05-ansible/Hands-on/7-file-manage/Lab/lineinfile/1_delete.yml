@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    remote_user: vagrant
+    become: true
+    gather_facts: no
+    #check_mode: no
+    ignore_errors: true
+    tasks:
+        - name: Delete line from a file
+          lineinfile:
+            path: /tmp/apache_version.txt
+            regexp: '^Grafana'
+            state: absent
+            
+          

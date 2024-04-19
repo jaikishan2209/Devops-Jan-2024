@@ -1,0 +1,14 @@
+---
+  - hosts: all
+    remote_user: vagrant
+    become: true
+    gather_facts: no
+    #check_mode: no
+    ignore_errors: true
+    tasks:
+        - name: Insert new line into a file if file not exist
+          lineinfile:
+            path: /tmp/test_file
+            line: this is just a new line
+            create: yes
+          

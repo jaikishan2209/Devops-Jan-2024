@@ -1,0 +1,14 @@
+---
+  - hosts: all
+    remote_user: vagrant
+    become: true
+    gather_facts: no
+    #check_mode: no
+    ignore_errors: true
+    tasks:
+        - name: replace a line into a file
+          lineinfile:
+            path: /tmp/apache_version.txt
+            regexp: '^Apache'
+            line: Splunk monitoring tool verion - 4.0.1 and its running on ubuntu
+          
