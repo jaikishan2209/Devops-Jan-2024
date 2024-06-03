@@ -41,6 +41,10 @@ Resources:
             #!/bin/bash -xe
             sudo apt update
             sudo apt-get install ansible -y
+            sudo mkdir -p /etc/ansible/playbook
+            sudo touch /etc/ansible/ansible.cfg
+            sudo touch /etc/ansible/hosts
+            sudo touch /etc/ansible/ansible.cfg
             
       Tags:
         - Key: Name
