@@ -7,7 +7,7 @@ Parameters:
   VPC:
     Description: VPC ID to use
     Type: String
-    Default: vpc-0b1564013b8666b6d
+    Default: xxxxxx
   InstanceLifeTimeMinutes:
     Description: Instance lifetime in minutes
     Type: Number
@@ -19,11 +19,11 @@ Parameters:
   AmiImageID:
     Description: Ami Image ID to use and this is ubuntu image from us-west-2
     Type: String
-    Default: ami-0efcece6bed30fd98
+    Default: xxxxx
   KeyPair:
     Description: Keypair to be attached to instance
     Type: String
-    Default: training
+    Default: xxxxx
 
 Resources:
   CreateInstance:
@@ -54,7 +54,7 @@ Resources:
             sudo apt-get install -y kubectl
             sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
             sudo install minikube-linux-amd64 /usr/local/bin/minikube
-            sudo minikube start --force 
+            sudo minikube start --force     
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}"

@@ -1,0 +1,52 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "k8-master" do | vm1 |
+  vm1.vm.hostname = "k8-master"
+  vm1.vm.network "private_network", ip: "192.168.33.13"
+  vm1.vm.provider "virtualbox" do |vb|
+    vb.memory = "3096"
+    vb.cpus = 2
+    vb.name = "k8-master"
+  end
+  vm1.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
+  end
+  vm1.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y git wget vim curl
+   SHELL
+  end
+
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "k8-node-1" do | vm2 |
+      vm2.vm.hostname = "k8-node-1"
+      vm2.vm.network "private_network", ip: "192.168.33.14"
+      vm2.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = 1
+        vb.name = "k8-node-1"
+      end
+      vm2.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
+    end
+   vm2.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt-get install -y git wget vim 
+   SHELL
+  end 
+
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.define "k8-node-2" do | vm3 |
+      vm3.vm.hostname = "k8-node-2"
+      vm3.vm.network "private_network", ip: "192.168.33.15"
+      vm3.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = 1
+        vb.name = "k8-node-2"
+      end
+        vm3.vm.provision "setup-hosts", :type => "shell", :path => "k8s-setup-master.sh" do |s|
+  end
+   vm3.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt-get install -y git wget vim curl
+   SHELL
+  end  
+end
