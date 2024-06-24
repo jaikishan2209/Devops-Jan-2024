@@ -1,0 +1,27 @@
+pipeline {
+	agent any
+		stages {
+			stage("Terraform") {
+				steps {
+					script {
+						sh '''
+						echo "Creating instance"
+						cd ${WORKSPACE}/ec2 && terraform init && terraform apply -auto-approve -lock=false && terraform output public_ip >> ${WORKSPACE}/ansible/hosts
+						'''
+						}
+					}
+				}
+			
+			stage("Ansible") {
+				steps {
+					script {
+						sh '''
+						sleep 150
+						echo "Executing playbook"
+						ansible-playbook ${WORKSPACE}/ansible/webserver.yaml -i ${WORKSPACE}/ansible/hosts --key-file "${WORKSPACE}/ansible/training.pem"
+						'''
+						}
+					}
+				}
+			}
+		}

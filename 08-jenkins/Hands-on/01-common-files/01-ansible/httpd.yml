@@ -1,0 +1,24 @@
+---
+  - hosts: all
+    remote_user: ubuntu
+    become: true
+    gather_facts: no
+    ignore_errors: true
+    tasks:
+      - name: perform apt update
+        shell: sudo apt update 
+      - name: Install httpd package
+        apt:
+          name: apache2
+          state: present
+      - name: Copy file with owner & permissions
+        copy:
+          src: mywebsite.html
+          dest: /var/www/html/
+          owner: ubuntu
+          group: ubuntu
+          mode: '0777'
+      - name: Start httpd service
+        service: 
+          name: apache2
+          state: started
