@@ -8,7 +8,7 @@
 
 - Provide full privilage for jenkins user
   * switch to root user `sudo su`
-  * goto sudoers file `visudo`
+  * goto sudoers file `vi /etc/sudoers` (if no write permission to this file then run `chmod 644 /etc/sudoers` file)
   * add line `%superadmin ALL=(ALL)       NOPASSWD: ALL`
   * `groupadd superadmin`
   * `usermod -aG superadmin jenkins`
